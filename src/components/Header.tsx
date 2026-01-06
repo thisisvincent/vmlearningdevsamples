@@ -36,15 +36,6 @@ export function Header() {
             developed for enterprise clients across various industries.
           </p>
 
-          {/* Company Badge */}
-          <div 
-            className="mt-8 opacity-0 animate-fade-in"
-            style={{ animationDelay: "300ms" }}
-          >
-            <span className="text-sm text-muted-foreground">
-              Wave Digital Learning • November 2025
-            </span>
-          </div>
         </div>
       </div>
     </header>

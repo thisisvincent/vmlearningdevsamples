@@ -3,9 +3,10 @@ import { PortfolioItem, categories } from "@/data/portfolioData";
 
 // Import all thumbnails
 import electricVehicles from "@/assets/thumbnails/electric-vehicles.jpg";
-import airbagSafety from "@/assets/thumbnails/airbag-safety.jpg";
 import xtrail from "@/assets/thumbnails/xtrail.jpg";
-import videoProduction from "@/assets/thumbnails/video-production.jpg";
+import nissamTech from "@/assets/thumbnails/nissan-tech.jpg";
+import gtr from "@/assets/thumbnails/gtr.jpg";
+import parkAssist from "@/assets/thumbnails/park-assist.png";
 import privacy from "@/assets/thumbnails/privacy.jpg";
 import copyright from "@/assets/thumbnails/copyright.jpg";
 import aml from "@/assets/thumbnails/aml.jpg";
@@ -17,9 +18,10 @@ import transformTech from "@/assets/thumbnails/transform-tech.jpg";
 
 const thumbnailMap: Record<string, string> = {
   "electric-vehicles": electricVehicles,
-  "airbag-safety": airbagSafety,
   "xtrail": xtrail,
-  "video-production": videoProduction,
+  "nissan-tech": nissamTech,
+  "gtr": gtr,
+  "park-assist": parkAssist,
   "privacy": privacy,
   "copyright": copyright,
   "aml": aml,
@@ -44,7 +46,7 @@ const categoryColors: Record<string, string> = {
 
 export function PortfolioCard({ item, index }: PortfolioCardProps) {
   const category = categories.find((c) => c.id === item.category);
-  const thumbnailSrc = thumbnailMap[item.thumbnail] || thumbnailMap["video-production"];
+  const thumbnailSrc = thumbnailMap[item.thumbnail] || thumbnailMap["nissan-tech"];
 
   return (
     <a

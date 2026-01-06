@@ -5,7 +5,7 @@ export function Footer() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="text-center md:text-left">
             <p className="font-display text-lg font-semibold text-foreground">
-              Wave Digital Learning
+              VincentM
             </p>
             <p className="text-sm text-muted-foreground mt-1">
               Creating impactful learning experiences

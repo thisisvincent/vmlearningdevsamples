@@ -53,13 +53,13 @@ const Index = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div className="text-center">
               <p className="font-display text-3xl md:text-4xl font-bold text-gradient">
-                {portfolioItems.length}+
+                50+
               </p>
-              <p className="text-sm text-muted-foreground mt-2">Learning Modules</p>
+              <p className="text-sm text-muted-foreground mt-2">Learning Modules & Workshops</p>
             </div>
             <div className="text-center">
               <p className="font-display text-3xl md:text-4xl font-bold text-gradient">
-                4
+                10
               </p>
               <p className="text-sm text-muted-foreground mt-2">Categories</p>
             </div>

@@ -1,5 +1,5 @@
 import { ExternalLink } from "lucide-react";
-import { PortfolioItem, categories } from "@/data/portfolioData";
+import { PortfolioItem, categories, isYouTubeUrl, getYouTubeVideoId } from "@/data/portfolioData";
 
 // Import all thumbnails
 import electricVehicles from "@/assets/thumbnails/electric-vehicles.jpg";
@@ -47,7 +47,58 @@ const categoryColors: Record<string, string> = {
 export function PortfolioCard({ item, index }: PortfolioCardProps) {
   const category = categories.find((c) => c.id === item.category);
   const thumbnailSrc = thumbnailMap[item.thumbnail] || thumbnailMap["nissan-tech"];
+  const isVideo = isYouTubeUrl(item.url);
+  const videoId = isVideo ? getYouTubeVideoId(item.url) : null;
 
+  // YouTube video card (non-clickable wrapper, embedded player)
+  if (isVideo && videoId) {
+    return (
+      <div
+        className="block opacity-0 animate-fade-in"
+        style={{ animationDelay: `${index * 100}ms` }}
+      >
+        <article className="relative h-full overflow-hidden rounded-lg bg-card border border-border/50 shadow-card transition-all duration-500 hover:border-primary/30 hover:shadow-glow">
+          {/* YouTube Embed */}
+          <div className="relative aspect-video overflow-hidden">
+            <iframe
+              src={`https://www.youtube.com/embed/${videoId}`}
+              title={item.title}
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              className="h-full w-full"
+            />
+            
+            {/* Category Badge */}
+            <div
+              className={`absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-medium ${categoryColors[item.category]} text-primary-foreground z-10`}
+            >
+              {category?.label}
+            </div>
+          </div>
+
+          {/* Content */}
+          <div className="p-5">
+            <h3 className="font-display text-lg font-semibold text-foreground mb-2 line-clamp-2">
+              {item.title}
+            </h3>
+            {item.description && (
+              <p className="text-sm text-muted-foreground line-clamp-3 leading-relaxed">
+                {item.description}
+              </p>
+            )}
+          </div>
+
+          {/* Bottom Accent Line */}
+          <div
+            className={`absolute bottom-0 left-0 h-1 w-full ${categoryColors[item.category]}`}
+          />
+        </article>
+      </div>
+    );
+  }
+
+  // Regular external link card
   return (
     <a
       href={item.url}

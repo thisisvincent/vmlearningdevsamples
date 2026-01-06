@@ -17,6 +17,16 @@ export const categories: { id: Category; label: string; color: string }[] = [
   { id: 'it', label: 'IT & Technology', color: 'category-it' },
 ];
 
+// Helper functions for YouTube video detection and embedding
+export const isYouTubeUrl = (url: string): boolean => {
+  return url.includes('youtube.com') || url.includes('youtu.be');
+};
+
+export const getYouTubeVideoId = (url: string): string | null => {
+  const match = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([^&]+)/);
+  return match ? match[1] : null;
+};
+
 export const portfolioItems: PortfolioItem[] = [
   // Automotive
   {

@@ -4,7 +4,6 @@ import { PortfolioItem, categories, isYouTubeUrl, getYouTubeVideoId } from "@/da
 // Import all thumbnails
 import electricVehicles from "@/assets/thumbnails/electric-vehicles.jpg";
 import xtrail from "@/assets/thumbnails/xtrail.jpg";
-import nissanTech from "@/assets/thumbnails/nissan-tech.jpg";
 import gtr from "@/assets/thumbnails/gtr.jpg";
 import parkAssist from "@/assets/thumbnails/park-assist.png";
 import privacy from "@/assets/thumbnails/privacy.jpg";
@@ -19,7 +18,7 @@ import transformTech from "@/assets/thumbnails/transform-tech.jpg";
 const thumbnailMap: Record<string, string> = {
   "electric-vehicles": electricVehicles,
   "xtrail": xtrail,
-  "nissan-tech": nissanTech,
+  "nissan-tech": "https://images.pexels.com/photos/190574/pexels-photo-190574.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750",
   "gtr": gtr,
   "park-assist": parkAssist,
   "privacy": privacy,
